@@ -1,30 +1,19 @@
 
+  <button (click)="log()">click</button>
   <a-scene background="color: #FAFAFA">
+    <a-assets>
+      <a-asset-item id="scene" src="../assets/scene.glb"></a-asset-item>
+    </a-assets>
 
-    <!-- Oven -->
-    <a-entity id="oven" position="0 0 -4" rotation="0 0 0">
-      <a-box position="0 0.5 0" rotation="0 0 0" color="grey" shadow height="1.8" width="2" depth="2"></a-box>
-      <a-box position="0 1.6 -0.7" rotation="0 0 0" color="#9c9c9c" shadow height="1" width="1.9" depth=".2"></a-box>
+    <a-entity gltf-model="#scene"></a-entity>
+    
+    <a-sky src="https://dj9123.github.io/CS-4331-Project-One/assets/sky.jpg"></a-sky>
 
-      <!-- Knobs -->
-      <a-cylinder position="0.7 1.8 -0.6" rotation="90 0 0" radius="0.13" height="0.1" color="#363636" shadow>
-      </a-cylinder>
-      <a-cylinder position="0.25 1.8 -0.6" rotation="90 0 0" radius="0.13" height="0.1" color="#363636" shadow>
-      </a-cylinder>
-      <a-cylinder position="-0.7 1.8 -0.6" rotation="90 0 0" radius="0.13" height="0.1" color="#363636" shadow>
-      </a-cylinder>
-      <a-cylinder position="-0.25 1.8 -0.6" rotation="90 0 0" radius="0.13" height="0.1" color="#363636" shadow>
-      </a-cylinder>
+    <!-- <ng-container *ngFor="let x of [0, 3, 6, 9]">
+      <a-entity oven id="oven" [x]="x"></a-entity>
+    </ng-container> -->
 
-      <!-- Burners -->
-      <a-cylinder position="-0.6 1.4 -0.2" rotation="0 0 0" radius="0.3" height="0.1" color="#ff4e3b" shadow>
-      </a-cylinder>
-      <a-cylinder position="-0.6 1.4 0.5" rotation="0 0 0" radius="0.3" height="0.1" color="#ff4e3b" shadow>
-      </a-cylinder>
-      <a-cylinder position="0.6 1.4 -0.2" rotation="0 0 0" radius="0.3" height="0.1" color="#ff4e3b" shadow>
-      </a-cylinder>
-      <a-cylinder position="0.6 1.4 0.5" rotation="0 0 0" radius="0.3" height="0.1" color="#ff4e3b" shadow></a-cylinder>
-    </a-entity>
+
 
     <a-entity camera wasd-controls="acceleration:300" look-controls="pointerLockEnabled: true" position="0 1.6 0"></a-entity>
 

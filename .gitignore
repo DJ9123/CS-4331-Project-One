@@ -44,3 +44,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Dev assets
+/src/assets/tests
+
+# Blend autosaves
+**.blend*
+!**.blend
