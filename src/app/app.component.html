@@ -1,13 +1,14 @@
 
   <button (click)="log()">click</button>
-  <a-scene background="color: #FAFAFA">
+  <a-scene background="color: #FAFAFA" renderer="colorManagement: true">
     <a-assets>
       <a-asset-item id="scene" src="../assets/scene.glb"></a-asset-item>
+      <a-asset-item id="scene" src="../assets/Cone.glb"></a-asset-item>
     </a-assets>
 
-    <a-entity gltf-model="#scene"></a-entity>
+    <a-entity gltf-model="#scene" rotation="0 -90 0"></a-entity>
     
-    <a-sky src="https://dj9123.github.io/CS-4331-Project-One/assets/sky.jpg"></a-sky>
+    <a-sky src="https://dj9123.github.io/CS-4331-Project-One/assets/sky.jpg" unlit flatShading="true"></a-sky>
 
     <!-- <ng-container *ngFor="let x of [0, 3, 6, 9]">
       <a-entity oven id="oven" [x]="x"></a-entity>
@@ -15,6 +16,6 @@
 
 
 
-    <a-entity camera wasd-controls="acceleration:300" look-controls="pointerLockEnabled: true" position="0 1.6 0"></a-entity>
+    <a-entity id="camera" camera wasd-controls="acceleration:300" look-controls="pointerLockEnabled: true" position="2.32677 1.6 2.50026"></a-entity>
 
   </a-scene>
