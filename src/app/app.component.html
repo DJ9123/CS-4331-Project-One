@@ -1,21 +1,63 @@
+<a-scene background="color: #FAFAFA" renderer="colorManagement: true">
+   <a-assets>
+      <a-asset-item id="scene" src="https://dj9123.github.io/CS-4331-Project-One/assets/scene.glb"></a-asset-item>
+      <a-asset-item id="cone" src="https://dj9123.github.io/CS-4331-Project-One/assets/cone.glb"></a-asset-item>
+      <a-asset-item id="door" src="https://dj9123.github.io/CS-4331-Project-One/assets/door.glb"></a-asset-item>
+      <audio id="doorSound" src="https://dj9123.github.io/CS-4331-Project-One/assets/sounds/door.mp3" preload="auto"></audio>
+   </a-assets>
 
-  <button (click)="log()">click</button>
-  <a-scene background="color: #FAFAFA" renderer="colorManagement: true">
-    <a-assets>
-      <a-asset-item id="scene" src="../assets/scene.glb"></a-asset-item>
-      <a-asset-item id="scene" src="../assets/Cone.glb"></a-asset-item>
-    </a-assets>
+   <!-- Scene assets -->
+   <a-sky src="https://dj9123.github.io/CS-4331-Project-One/assets/sky.jpg" unlit flatShading="true"></a-sky>
+   <a-entity gltf-model="#scene" rotation="0 -90 0"></a-entity>
 
-    <a-entity gltf-model="#scene" rotation="0 -90 0"></a-entity>
-    
-    <a-sky src="https://dj9123.github.io/CS-4331-Project-One/assets/sky.jpg" unlit flatShading="true"></a-sky>
+   <!-- Camera -->
+   <a-entity id="movement" camera wasd-controls="acceleration:300" look-controls="pointerLockEnabled: true"
+      position="2.32677 1.6 2.50026">
+      <a-entity raycaster="objects: .clickable" cursor="fuse: true" position="0 0 -.2" scale="0.005 0.005 0.005"
+         geometry="primitive: ring">
+      </a-entity>
+   </a-entity>
 
-    <!-- <ng-container *ngFor="let x of [0, 3, 6, 9]">
+   <!-- Light -->
+   <a-light id="light" type="hemisphere" intensity="0.6" position="0 2 0"></a-light>
+
+
+   <!-- Covid Items -->
+   <a-entity gltf-model="#cone" id="cone1" class="covid" visible="false" position="0 0 -0.68042" rotation="0 -90 0">
+   </a-entity>
+   <a-entity gltf-model="#cone" id="cone2" class="covid" visible="false" position="0 0 0.59613" rotation="0 -90 0">
+   </a-entity>
+   <a-entity gltf-model="#cone" id="cone3" class="covid" visible="false" position="0 0 -0.04729" rotation="0 -90 0">
+   </a-entity>
+   <a-entity gltf-model="#cone" id="cone4" class="covid" visible="false" position="2.40564 0 3.66199" rotation="0 -90 0">
+   </a-entity>
+   <a-entity gltf-model="#cone" id="cone5" class="covid" visible="false" position="2.49427 0 2.90996" rotation="0 -90 0">
+   </a-entity>
+   <a-entity gltf-model="#cone" id="cone6" class="covid" visible="false" position="7.90572 0 1.93787" rotation="0 -90 0">
+   </a-entity>
+
+   <!-- Items -->
+   <a-entity gltf-model="#door" door id="door1" sound="src: #doorSound; on: click" class="clickable" isOpen="false" position="0 0 0" rotation="0 -90 0">
+   </a-entity>
+   <a-entity gltf-model="#door" door id="door2" sound="src: #doorSound; on: click" class="clickable" isOpen="false" position="16.984 0 -7.24219"
+      rotation="0 90 0"></a-entity>
+   <a-entity gltf-model="#door" door id="door3" sound="src: #doorSound; on: click" class="clickable" isOpen="false" position="6.056 0 1.99"
+      rotation="0 0 0"></a-entity>
+   <a-entity gltf-model="#door" door id="door4" sound="src: #doorSound; on: click" class="clickable" isOpen="false" position="-1.19974 0 -14.99185"
+      rotation="0 180 0"></a-entity>
+
+   <!-- Buttons -->
+   <a-box id="light-button" button class="clickable" color="white" scale=".1 .1 .1" position="7.31317 1.62427 -4.72378"
+      raycaster="far: 20">
+   </a-box>
+   <a-box id="covid-toggle" button class="clickable" color="yellow" scale=".1 .1 .1" position="7.31317 1.62427 -5.12378"
+      raycaster="far: 20">
+   </a-box>
+
+
+   <!-- Proof of Concept example -->
+   <!-- <ng-container *ngFor="let x of [0, 3, 6, 9]">
       <a-entity oven id="oven" [x]="x"></a-entity>
     </ng-container> -->
 
-
-
-    <a-entity id="camera" camera wasd-controls="acceleration:300" look-controls="pointerLockEnabled: true" position="2.32677 1.6 2.50026"></a-entity>
-
-  </a-scene>
+</a-scene>
